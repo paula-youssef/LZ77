@@ -1,0 +1,44 @@
+package lz77;
+
+public class compression {
+	private String data="abaababaabbbbbbbbbbbba";
+	private String m3aya_mn_data="";
+	private String checkMode="";
+	private String compress="";
+	int whil=0,i=0,index=0,Return=0;
+	public void readFromAfile()
+		{
+		
+		}
+	public void compress()
+		{
+		while(whil<data.length())
+			{
+			checkMode="";
+			char c;
+			c=data.charAt(whil);
+			checkMode+=c;
+			i=whil+1;
+			m3aya_mn_data = (String) data.subSequence(0, i);
+			if(m3aya_mn_data.contains(checkMode))
+				{
+				while(!m3aya_mn_data.contains(checkMode))
+					{
+					whil++;
+					Return++;
+					checkMode +=data.charAt(whil);
+					i=whil+1;
+					m3aya_mn_data = (String) data.subSequence(0, i);
+					}
+				index=m3aya_mn_data.indexOf(checkMode);
+				compress="<"+index+","+Return+","+data.charAt(whil)+">";
+				}else{
+					compress +="<0,0,"+data.charAt(whil)+">";
+					whil++;
+				}
+			
+			}	
+		System.out.println(compress);
+		}
+	
+}

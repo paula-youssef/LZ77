@@ -1,0 +1,10 @@
+
+package lz77;
+
+public class main {
+	public static void main(String[]args)
+		{
+		   compression ob = new compression();
+		   ob.compress();
+		}
+}
